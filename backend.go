@@ -23,7 +23,7 @@ func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.U
 }
 
 func (be *Backend) NewUser(name, password string) (err error) {
-	user := &User{Name: name, Password: password}
+	user := &User{Name: name, Password: password, mailboxes: make(map[string]*Mailbox)}
 	err = user.CreateMailbox("INBOX")
 	if err == nil {
 		be.Users[user.Name] = user
