@@ -23,7 +23,7 @@ func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.U
 }
 
 func New() *Backend {
-	user := &User{username: "username", password: "password"}
+	user := &User{Name: "username", password: "password"}
 
 	body := "From: contact@example.org\r\n" +
 		"To: contact@example.org\r\n" +
@@ -51,6 +51,6 @@ func New() *Backend {
 	}
 
 	return &Backend{
-		users: map[string]*User{user.username: user},
+		users: map[string]*User{user.Name: user},
 	}
 }

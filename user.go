@@ -7,13 +7,13 @@ import (
 )
 
 type User struct {
-	username  string
+	Name      string
 	password  string
 	mailboxes map[string]*Mailbox
 }
 
 func (u *User) Username() string {
-	return u.username
+	return u.Name
 }
 
 func (u *User) ListMailboxes(subscribed bool) (mailboxes []backend.Mailbox, err error) {
