@@ -15,7 +15,7 @@ type Backend struct {
 
 func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.User, error) {
 	user, ok := be.users[username]
-	if ok && user.password == password {
+	if ok && user.Password == password {
 		return user, nil
 	}
 
@@ -23,7 +23,7 @@ func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.U
 }
 
 func New() *Backend {
-	user := &User{Name: "username", password: "password"}
+	user := &User{Name: "username", Password: "password"}
 
 	body := "From: contact@example.org\r\n" +
 		"To: contact@example.org\r\n" +

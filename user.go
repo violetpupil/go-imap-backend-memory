@@ -8,7 +8,7 @@ import (
 
 type User struct {
 	Name      string
-	password  string
+	Password  string
 	mailboxes map[string]*Mailbox
 }
 
