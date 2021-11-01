@@ -22,6 +22,15 @@ func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.U
 	return nil, errors.New("Bad username or password")
 }
 
+func (be *Backend) NewUser(name, password string) (err error) {
+	user := &User{Name: name, Password: password}
+	err = user.CreateMailbox("INBOX")
+	if err == nil {
+		be.Users[user.Name] = user
+	}
+	return
+}
+
 func New() *Backend {
 	user := &User{Name: "username", Password: "password"}
 

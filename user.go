@@ -80,9 +80,3 @@ func (u *User) RenameMailbox(existingName, newName string) error {
 func (u *User) Logout() error {
 	return nil
 }
-
-func NewUser(name, password string) (user *User, err error) {
-	user = &User{Name: name, Password: password}
-	err = user.CreateMailbox("INBOX")
-	return
-}
