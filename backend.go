@@ -10,11 +10,11 @@ import (
 )
 
 type Backend struct {
-	users map[string]*User
+	Users map[string]*User
 }
 
 func (be *Backend) Login(_ *imap.ConnInfo, username, password string) (backend.User, error) {
-	user, ok := be.users[username]
+	user, ok := be.Users[username]
 	if ok && user.Password == password {
 		return user, nil
 	}
@@ -51,6 +51,6 @@ func New() *Backend {
 	}
 
 	return &Backend{
-		users: map[string]*User{user.Name: user},
+		Users: map[string]*User{user.Name: user},
 	}
 }
