@@ -1,3 +1,4 @@
+// Deprecated: this module is useless
 module github.com/violetpupil/go-imap-backend-memory
 
 go 1.15
